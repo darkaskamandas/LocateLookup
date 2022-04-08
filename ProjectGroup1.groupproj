@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{002E7A92-C2F4-4020-B697-8F8A4DE13476}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="K2_LocateLookupExample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\..\..\Downloads\Решение - Ex_4_D_LocateLookupExampleR\Решение - Ex_4_D_LocateLookupExampleR\LocateLookupExampleR.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="K2_LocateLookupExample">
+        <MSBuild Projects="K2_LocateLookupExample.dproj"/>
+    </Target>
+    <Target Name="K2_LocateLookupExample:Clean">
+        <MSBuild Projects="K2_LocateLookupExample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="K2_LocateLookupExample:Make">
+        <MSBuild Projects="K2_LocateLookupExample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="LocateLookupExampleR">
+        <MSBuild Projects="..\..\..\..\..\Downloads\Решение - Ex_4_D_LocateLookupExampleR\Решение - Ex_4_D_LocateLookupExampleR\LocateLookupExampleR.dproj"/>
+    </Target>
+    <Target Name="LocateLookupExampleR:Clean">
+        <MSBuild Projects="..\..\..\..\..\Downloads\Решение - Ex_4_D_LocateLookupExampleR\Решение - Ex_4_D_LocateLookupExampleR\LocateLookupExampleR.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="LocateLookupExampleR:Make">
+        <MSBuild Projects="..\..\..\..\..\Downloads\Решение - Ex_4_D_LocateLookupExampleR\Решение - Ex_4_D_LocateLookupExampleR\LocateLookupExampleR.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="K2_LocateLookupExample;LocateLookupExampleR"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="K2_LocateLookupExample:Clean;LocateLookupExampleR:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="K2_LocateLookupExample:Make;LocateLookupExampleR:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
